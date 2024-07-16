@@ -6,7 +6,7 @@
 #include "Algorithms.hpp"
 #include <string>
 #include <queue>
-
+#include <stdexcept>
 
 using namespace std;
 
