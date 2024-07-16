@@ -3,7 +3,7 @@ This project is a C++ implementation of various graph algorithms. The project is
 
 For detailed explanations of the algorithms, please refer to the [wiki](../../wiki/Exercise-1-Graph-Algorithms)
 
-For deep explanation about lines functions and info about the code[wiki](../../wiki/Deep-Lines-Explanation).
+For deep explanation about lines functions and info about the code [wiki](../../wiki/Deep-Lines-Explanation).
 
 ## Graph Class
 
