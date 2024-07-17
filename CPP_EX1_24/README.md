@@ -18,7 +18,7 @@ The `Graph` class is used to represent a graph using an adjacency matrix. The ad
 ## Algorithms Class
 
 The `Algorithms` class contains several static functions to perform operations on the graph:
-https://github.com/CodesParadox/CPP_Assignments/wiki/Exercise-1-Graph-Algorithms
+
 - [`isConnected(const Graph& g)`](https://github.com/CodesParadox/CPP_Assignments/wiki/Exercise-1-Graph-Algorithms#isconnected): This method checks if the graph is connected using a breadth-first search (BFS) traversal. It starts from the first vertex and marks it as visited. Then it adds all unvisited adjacent vertices to a queue. This process is repeated until all vertices have been visited. If all vertices are visited, the graph is connected.
 
 - [`shortestPath(const Graph& g, int start, int end)`](https://github.com/CodesParadox/CPP_Assignments/wiki/Exercise-1-Graph-Algorithms#shortestpath): This method finds the shortest path between two vertices using BFS. It keeps track of the parent of each vertex during the traversal. After reaching the end vertex, it uses the parent information to construct the path from the start vertex to the end vertex.
