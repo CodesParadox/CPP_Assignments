@@ -7,7 +7,7 @@ For deep explanation about lines functions and info about the code [wiki](https:
 
 ## Graph Class
 
-The `Graph` class is used to represent a graph using an adjacency matrix. The adjacency matrix is a 2D vector of integers (`vector<vector<int>>`). The class provides several methods to interact with the graph:
+The [`Graph`](https://github.com/CodesParadox/CPP_Assignments/blob/main/CPP_EX1_24/Graph.cpp) class is used to represent a graph using an adjacency matrix. The adjacency matrix is a 2D vector of integers (`vector<vector<int>>`). The class provides several methods to interact with the graph:
 
 - `loadGraph(const vector<vector<int>>& matrix)`: This method is used to initialize the graph with a given adjacency matrix. It checks if the input matrix is a square matrix (i.e., the number of rows is equal to the number of columns). If the matrix is not valid, it throws an `invalid_argument` exception. If the matrix is valid, it assigns the matrix to `adjacencyMatrix` and sets `numVertices` to the size of the matrix.
 
@@ -17,7 +17,7 @@ The `Graph` class is used to represent a graph using an adjacency matrix. The ad
 
 ## Algorithms Class
 
-The `Algorithms` class contains several static functions to perform operations on the graph:
+The [`Algorithms`](https://github.com/CodesParadox/CPP_Assignments/blob/main/CPP_EX1_24/Algorithms.cpp) class contains several static functions to perform operations on the graph:
 
 - [`isConnected(const Graph& g)`](https://github.com/CodesParadox/CPP_Assignments/wiki/Exercise-1-Graph-Algorithms#isconnected): This method checks if the graph is connected using a breadth-first search (BFS) traversal. It starts from the first vertex and marks it as visited. Then it adds all unvisited adjacent vertices to a queue. This process is repeated until all vertices have been visited. If all vertices are visited, the graph is connected.
 
