@@ -18,16 +18,16 @@ The `Graph` class is used to represent a graph using an adjacency matrix. The ad
 ## Algorithms Class
 
 The `Algorithms` class contains several static functions to perform operations on the graph:
+https://github.com/CodesParadox/CPP_Assignments/wiki/Exercise-1-Graph-Algorithms
+- [`isConnected(const Graph& g)`](https://github.com/CodesParadox/CPP_Assignments/wiki/Exercise-1-Graph-Algorithms#isconnected): This method checks if the graph is connected using a breadth-first search (BFS) traversal. It starts from the first vertex and marks it as visited. Then it adds all unvisited adjacent vertices to a queue. This process is repeated until all vertices have been visited. If all vertices are visited, the graph is connected.
 
-- [`isConnected(const Graph& g)`](../../wiki/Exercise-1-Graph-Algorithms#isconnected): This method checks if the graph is connected using a breadth-first search (BFS) traversal. It starts from the first vertex and marks it as visited. Then it adds all unvisited adjacent vertices to a queue. This process is repeated until all vertices have been visited. If all vertices are visited, the graph is connected.
+- [`shortestPath(const Graph& g, int start, int end)`](https://github.com/CodesParadox/CPP_Assignments/wiki/Exercise-1-Graph-Algorithms#shortestpath): This method finds the shortest path between two vertices using BFS. It keeps track of the parent of each vertex during the traversal. After reaching the end vertex, it uses the parent information to construct the path from the start vertex to the end vertex.
 
-- [`shortestPath(const Graph& g, int start, int end)`](../../wiki/Exercise-1-Graph-Algorithms#shortestpath): This method finds the shortest path between two vertices using BFS. It keeps track of the parent of each vertex during the traversal. After reaching the end vertex, it uses the parent information to construct the path from the start vertex to the end vertex.
+- [`isContainsCycle(const Graph& g)`](https://github.com/CodesParadox/CPP_Assignments/wiki/Exercise-1-Graph-Algorithms#iscontainscycle): This method checks if the graph contains a cycle. It uses a depth-first search (DFS) traversal and keeps track of the vertices currently in the recursion stack (`inStack`). If it encounters a vertex that is in the current recursion stack, it means there is a cycle.
 
-- [`isContainsCycle(const Graph& g)`](../../wiki/Exercise-1-Graph-Algorithms#iscontainscycle): This method checks if the graph contains a cycle. It uses a depth-first search (DFS) traversal and keeps track of the vertices currently in the recursion stack (`inStack`). If it encounters a vertex that is in the current recursion stack, it means there is a cycle.
+- [`isBipartite(const Graph& g)`](https://github.com/CodesParadox/CPP_Assignments/wiki/Exercise-1-Graph-Algorithms#isbipartite): This method checks if the graph is bipartite. It uses a BFS traversal and colors the vertices alternatively. If it encounters two adjacent vertices with the same color, it means the graph is not bipartite.
 
-- [`isBipartite(const Graph& g)`](../../wiki/Exercise-1-Graph-Algorithms#isbipartite): This method checks if the graph is bipartite. It uses a BFS traversal and colors the vertices alternatively. If it encounters two adjacent vertices with the same color, it means the graph is not bipartite.
-
-- [`negativeCycle(const Graph& g)`](../../wiki/Exercise-1-Graph-Algorithms#negativecycle): This method uses the Bellman-Ford algorithm to detect negative cycles in the graph.
+- [`negativeCycle(const Graph& g)`](https://github.com/CodesParadox/CPP_Assignments/wiki/Exercise-1-Graph-Algorithms#negativecycle): This method uses the Bellman-Ford algorithm to detect negative cycles in the graph.
 
 ## Building and Running the Project
 
