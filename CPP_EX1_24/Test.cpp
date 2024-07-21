@@ -101,3 +101,106 @@ TEST_CASE("Test invalid graph")
         {0, 0, 0, 5}};
     CHECK_THROWS(g.loadGraph(graph));
 }
+
+TEST_CASE("Test negativeCycle")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {
+        {0, 1, 0},
+        {1, 0, 1},
+        {0, 1, 0}};
+    g.loadGraph(graph);
+    CHECK(ariel::Algorithms::negativeCycle(g) == "The graph does not contain a negative cycle.");
+
+    vector<vector<int>> graph2 = {
+        {0, 1, 1, 0, 0},
+        {1, 0, 1, 0, 0},
+        {1, 1, 0, 1, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 0, 0, 0}};
+    g.loadGraph(graph2);
+    CHECK(ariel::Algorithms::negativeCycle(g) == "The graph does not contain a negative cycle.");
+}
+
+TEST_CASE("isConnected_EmptyGraph_ReturnsFalse")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {};
+    g.loadGraph(graph);
+    CHECK_FALSE(ariel::Algorithms::isConnected(g));
+}
+
+TEST_CASE("shortestPath_NoPathExists_ReturnsNegativeOne")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {
+        {0, 0, 0},
+        {0, 0, 0},
+        {0, 0, 0}};
+    g.loadGraph(graph);
+    CHECK(ariel::Algorithms::shortestPath(g, 0, 2) == "-1");
+}
+
+TEST_CASE("isContainsCycle_SingleVertexGraph_ReturnsFalse")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {{0}};
+    g.loadGraph(graph);
+    CHECK_FALSE(ariel::Algorithms::isContainsCycle(g));
+}
+
+TEST_CASE("isBipartite_SingleVertexGraph_ReturnsTrue")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {{0}};
+    g.loadGraph(graph);
+    CHECK(ariel::Algorithms::isBipartite(g) == "The graph is bipartite: A={0}, B={}");
+}
+
+TEST_CASE("isBipartite_TwoConnectedVertices_ReturnsTrue")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {
+        {0, 1},
+        {1, 0}};
+    g.loadGraph(graph);
+    CHECK(ariel::Algorithms::isBipartite(g) == "The graph is bipartite: A={0}, B={1}");
+}
+
+TEST_CASE("negativeCycle_EmptyGraph_ReturnsNoNegativeCycle")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {};
+    g.loadGraph(graph);
+    CHECK(ariel::Algorithms::negativeCycle(g) == "The graph does not contain a negative cycle.");
+}
+
+TEST_CASE("negativeCycle_SingleVertexGraph_ReturnsNoNegativeCycle")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {{0}};
+    g.loadGraph(graph);
+    CHECK(ariel::Algorithms::negativeCycle(g) == "The graph does not contain a negative cycle.");
+}
+
+TEST_CASE("negativeCycle_PositiveWeightCycle_ReturnsNoNegativeCycle")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {
+        {0, 2, -1},
+        {-2, 0, 4},
+        {1, -4, 0}};
+    g.loadGraph(graph);
+    CHECK(ariel::Algorithms::negativeCycle(g) == "The graph does not contain a negative cycle.");
+}
+
+TEST_CASE("negativeCycle_NegativeWeightCycle_ReturnsNegativeCycleFound")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {
+        {0, 1, 0},
+        {-1, 0, -1},
+        {0, 1, 0}};
+    g.loadGraph(graph);
+    CHECK(ariel::Algorithms::negativeCycle(g).find("Negative cycle found:") != string::npos);
+}
